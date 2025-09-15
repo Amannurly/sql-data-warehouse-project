@@ -14,7 +14,7 @@ This script is used to drop and recreate the DataWarehouse database from scratch
 
 
 USE master;
-go  
+
 
 -- drop  and recreate the datawarehouse database
 if exists (select 1 from sys.databases where name = 'DataWarehouse')
@@ -22,21 +22,16 @@ begin
 	alter Database DataWarehouse set single_user with rollback immediate;
 	Drop database DataWarehouse;
 end;
-go
 
 
 -- create the 'Datawarehouse' database
 create database DataWarehouse;
-go
 
 use DataWarehouse;
-go
+
 --creating multiple schemas 
 create schema broze;
-go
 
 create schema silver;
-go
 
 create schema gold;
-go
